@@ -1,0 +1,78 @@
+/* ==========================================================================
+   ZYRA STORE - TIMINGS, TRANSICIONES Y EFECTO FILM GRAIN (PREMIUM)
+   ========================================================================== */
+
+/* Efecto Film Grain (Ruido de Cine en Movimiento) */
+.film-grain {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: transparent url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E') repeat;
+    opacity: 0.038;
+    z-index: 2;
+    pointer-events: none;
+    animation: grainRun 1s steps(8) infinite;
+}
+
+@keyframes grainRun {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -10%); }
+    20% { transform: translate(-15%, 5%); }
+    30% { transform: translate(7%, -15%); }
+    40% { transform: translate(-5%, 15%); }
+    50% { transform: translate(-15%, 10%); }
+    60% { transform: translate(15%, -10%); }
+    70% { transform: translate(3%, 12%); }
+    80% { transform: translate(-10%, 5%); }
+    90% { transform: translate(10%, -5%); }
+}
+
+/* Animación de entrada por desvanecimiento y ascenso */
+@keyframes slideUpIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cinematic-header {
+    animation: slideUpIn var(--anim-duration, 1.2s) var(--anim-easing, cubic-bezier(0.16, 1, 0.3, 1)) both;
+}
+
+.left-brand-panel {
+    animation: slideUpIn var(--anim-duration, 1.2s) var(--anim-easing, cubic-bezier(0.16, 1, 0.3, 1)) 0.15s both;
+}
+
+.right-feed-panel {
+    animation: slideUpIn var(--anim-duration, 1.2s) var(--anim-easing, cubic-bezier(0.16, 1, 0.3, 1)) 0.3s both;
+}
+
+.cinematic-footer {
+    animation: slideUpIn var(--anim-duration, 1.2s) var(--anim-easing, cubic-bezier(0.16, 1, 0.3, 1)) 0.45s both;
+}
+
+/* Rotación de Ruedas de Casette */
+@keyframes rotateWheel {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Rebote de EQ gráfico del reproductor */
+@keyframes eqBounce {
+    0% { transform: scaleY(0.2); }
+    100% { transform: scaleY(1); }
+}
+
+.minimal-cassette-player.playing .player-visualizer .eq-bar {
+    animation: eqBounce 0.9s ease-in-out infinite alternate;
+}
+
+.minimal-cassette-player.playing .player-visualizer .eq-bar:nth-child(1) { animation-delay: 0.1s; }
+.minimal-cassette-player.playing .player-visualizer .eq-bar:nth-child(2) { animation-delay: 0.4s; }
+.minimal-cassette-player.playing .player-visualizer .eq-bar:nth-child(3) { animation-delay: 0.2s; }

@@ -1,0 +1,355 @@
+/* ==========================================================================
+   ZYRA STORE - COMPONENTES DEL DISEÑO EDITORIAL DE BOUTIQUE (PREMIUM)
+   ========================================================================== */
+
+/* --- TÍTULOS Y DESCRIPCIÓN --- */
+.editorial-main-title {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--accent-pure-white);
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.editorial-description {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 90%;
+}
+
+/* --- ENLACES DE TEXTO EDITORIALES --- */
+.panel-section-title {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    padding-bottom: 6px;
+    width: 100%;
+}
+
+.editorial-links-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    width: 100%;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-secondary) !important;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 2px;
+    transition: var(--transition-smooth);
+}
+
+.social-btn svg {
+    display: none !important; /* Sin iconos para este estilo de editorial */
+}
+
+.social-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--accent-pure-white);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition-smooth);
+}
+
+.social-btn:hover {
+    color: var(--accent-pure-white) !important;
+}
+
+.social-btn:hover::after {
+    transform: scaleX(1);
+}
+
+/* --- FEED DE ARTÍCULOS EDITORIALES --- */
+.timeline-feed-wrapper {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.timeline-feed-wrapper::-webkit-scrollbar {
+    width: 2px;
+}
+
+.timeline-feed-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.feed-card {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.feed-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.feed-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.feed-badge {
+    color: var(--accent-pure-white);
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-size: 0.58rem;
+}
+
+.feed-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent-pure-white);
+    text-transform: capitalize;
+    letter-spacing: 0.2px;
+}
+
+.feed-desc {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+/* Contenedor de atajos de teclado en el feed */
+.feed-keys-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.feed-key-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+}
+
+.feed-key-item kbd {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--accent-pure-white);
+    padding: 1px 5px;
+    border-radius: 2px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.65rem;
+}
+
+/* --- REPRODUCTOR MINIMALISTA CASSETTE --- */
+.minimal-cassette-player {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 45%;
+}
+
+.cassette-body {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: var(--border-glass);
+    border-radius: 4px;
+    padding: 10px 14px;
+    background: var(--bg-glass-card);
+    position: relative;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.tape-wheels {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.wheel {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px dashed var(--text-muted);
+    display: inline-block;
+    animation: rotateWheel 8s linear infinite;
+    animation-play-state: paused;
+}
+
+.minimal-cassette-player.playing .wheel {
+    animation-play-state: running;
+}
+
+.track-details {
+    display: flex;
+    flex-direction: column;
+    max-width: 140px;
+    overflow: hidden;
+}
+
+.track-name {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--accent-pure-white);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.track-artist {
+    font-size: 0.62rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 1px;
+    text-transform: uppercase;
+}
+
+.player-visualizer {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 10px;
+    margin-left: auto;
+}
+
+.eq-bar {
+    width: 1.5px;
+    height: 100%;
+    background: var(--accent-pure-white);
+    transform-origin: bottom;
+    opacity: 0.12;
+}
+
+.minimal-cassette-player.playing .eq-bar {
+    opacity: 0.8;
+}
+
+.cassette-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.volume-slider-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.vol-mute-btn {
+    color: var(--text-secondary);
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.vol-mute-btn:hover {
+    color: var(--accent-pure-white);
+}
+
+.vol-svg {
+    width: 12px;
+    height: 12px;
+}
+
+.vol-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 55px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    cursor: pointer;
+}
+
+.vol-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent-pure-white);
+}
+
+/* --- BARRA DE PROGRESO DE HILO --- */
+.hilo-progress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 45%;
+}
+
+.hilo-progress-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.phase-detail-text {
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.percentage-detail-text {
+    color: var(--accent-pure-white);
+}
+
+.hilo-progress-track {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.hilo-progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--accent-pure-white);
+    transition: width 0.3s cubic-bezier(0.1, 0.8, 0.25, 1);
+}

@@ -1,0 +1,26 @@
+/* ==========================================================================
+   ZYRA STORE - CONTROL DE COLOR Y COMPONENTES VISUALES (PREMIUM)
+   ========================================================================== */
+
+/* Ajustes de atenuación sobre el fondo */
+.bg-video-el.hidden {
+    display: none;
+}
+
+#particles-canvas.hidden {
+    display: none;
+}
+
+/* Clases de utilidad interactiva */
+.hidden {
+    display: none !important;
+}
+
+/* Centrado automático del branding si se oculta novedades */
+.left-brand-panel.full-width {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 30px;
+}

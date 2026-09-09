@@ -1,0 +1,196 @@
+/* ==========================================================================
+   ZYRA STORE - VISOR DE CÁMARA Y MAQUETACIÓN CINEMÁTICA (PREMIUM)
+   ========================================================================== */
+
+/* Superposiciones cinemáticas y grano de película */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.9) 100%);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.1) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0.35;
+}
+
+#particles-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bg-video-el {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Visor cinematográfico de pantalla (Encuadre) */
+.cinematic-frame-border {
+    position: absolute;
+    top: 1.8rem;
+    bottom: 1.8rem;
+    left: 1.8rem;
+    right: 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+    z-index: 99;
+}
+
+/* Contenedor Principal */
+.cinematic-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+    padding: 4.5rem 5.5rem;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+}
+
+/* Cabecera superior */
+.cinematic-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    padding-bottom: 20px;
+    z-index: 10;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.logo-wrapper img {
+    max-height: 38px;
+    object-fit: contain;
+}
+
+.logo-text-only {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--accent-pure-white);
+    text-transform: uppercase;
+}
+
+.server-status-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent-pure-white);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.85);
+}
+
+.status-text {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Cuerpo de cuadrantes */
+.cinematic-main {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: calc(100% - 150px);
+    gap: 5rem;
+    padding: 2.5rem 0;
+    z-index: 10;
+}
+
+.cinematic-column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.left-brand-panel {
+    width: 42%;
+    justify-content: space-between;
+}
+
+.right-feed-panel {
+    width: 50%;
+}
+
+/* Pie de Página */
+.cinematic-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    padding-top: 20px;
+    z-index: 10;
+}
+
+.footer-layout-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-metadata-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+}
+
+.music-tip-text {
+    animation: textGlowPulse 1.8s infinite alternate ease-in-out;
+}
+
+@keyframes textGlowPulse {
+    from { opacity: 0.4; }
+    to { opacity: 0.85; }
+}
+
+.branding-credits {
+    text-transform: uppercase;
+}

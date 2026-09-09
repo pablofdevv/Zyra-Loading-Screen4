@@ -1,0 +1,31 @@
+/* ==========================================================================
+   ZYRA STORE - VARIABLES CSS Y DISEÑO EDITORIAL (PREMIUM)
+   ========================================================================== */
+
+:root {
+    /* Paleta Cinemática Mate Profunda */
+    --bg-pure-black: #080808;
+    --bg-panel-dark: #0f0f0f;
+    --bg-glass-card: rgba(255, 255, 255, 0.005);
+    
+    /* Bordes y líneas cinemáticas */
+    --border-glass: 1px solid rgba(255, 255, 255, 0.04);
+    --border-glass-active: 1px solid rgba(255, 255, 255, 0.15);
+    
+    /* Colores del acento y texto */
+    --accent-pure-white: #ffffff;
+    --accent-glow: rgba(255, 255, 255, 0.25);
+    
+    /* Tipografía combinada premium */
+    --text-primary: #f5f5f5;
+    --text-secondary: #a3a3a3;
+    --text-muted: #525252;
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-size-base: 16px;
+    
+    /* Timings de entrada */
+    --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-spring: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

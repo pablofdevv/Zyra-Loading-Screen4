@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyra Store - Cinematic Editorial Screen</title>
+    
+    <!-- Google Fonts: Playfair Display (Serif de Lujo) & Inter (Sans-Serif de Lectura) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Hojas de Estilos Modulares (Prompt Maestro) -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+    <!-- Video de Fondo (Oculto por defecto) -->
+    <video id="bg-video" loop muted playsinline class="bg-video-el hidden"></video>
+
+    <!-- Fondo Dinámico de Partículas o Malla Degradada -->
+    <canvas id="particles-canvas"></canvas>
+    
+    <!-- Capa Animada de Grano de Película (Film Grain) -->
+    <div class="film-grain" id="film-grain-layer"></div>
+    
+    <!-- Overlays Cinemáticos -->
+    <div class="overlay"></div>
+    <div class="scanlines"></div>
+
+    <!-- ENCUADRE DE VISOR CINEMATOGRÁFICO DE PANTALLA -->
+    <div class="cinematic-frame-border"></div>
+
+    <!-- CONTENEDOR PRINCIPAL EDITORIAL -->
+    <main class="cinematic-container" id="loading-container">
+        
+        <!-- CABECERA PRINCIPAL -->
+        <header class="cinematic-header">
+            <div id="logo-container" class="logo-wrapper">
+                <!-- Logotipo o Branding Texto -->
+            </div>
+            <div class="server-status-info">
+                <span class="status-dot"></span>
+                <span id="server-status-tag" class="status-text">EDITION 01 / CONNECTING</span>
+            </div>
+        </header>
+
+        <!-- PANEL DE CUADRANTES EDITORIALES -->
+        <section class="cinematic-main">
+            
+            <!-- COLUMNA IZQUIERDA: Claim de Marca y Enlaces de Texto -->
+            <article class="cinematic-column left-brand-panel">
+                <div class="editorial-hero">
+                    <h2 class="editorial-main-title" id="server-claim">The art of premium roleplay.</h2>
+                    <p class="editorial-description" id="server-description">Your ultimate destination for premium FiveM resources. Enjoy the best experience.</p>
+                </div>
+
+                <!-- Enlaces de Texto Editorial (Underline Reveal) -->
+                <div class="links-panel" id="socials-panel">
+                    <h3 class="panel-section-title">OFFICIAL LINKS</h3>
+                    <nav class="editorial-links-list" id="social-links-grid">
+                        <!-- Inyectado dinámicamente con js/ui.js -->
+                    </nav>
+                </div>
+            </article>
+
+            <!-- COLUMNA DERECHA: Artículos de Novedades y Controles -->
+            <article class="cinematic-column right-feed-panel">
+                <h3 class="panel-section-title">NEWS & UPDATES</h3>
+                <div class="timeline-feed-wrapper" id="timeline-feed-wrapper">
+                    <!-- Inyectado dinámicamente con js/news.js -->
+                </div>
+            </article>
+
+        </section>
+
+        <!-- PIE DE DETALLES Y BARRA DE PROGRESO DE HILO -->
+        <footer class="cinematic-footer">
+            
+            <!-- Fila Inferior: Módulo Musical y Barra de Carga -->
+            <div class="footer-layout-row">
+                
+                <!-- Reproductor Minimalista Estilo Cassette -->
+                <div class="minimal-cassette-player" id="music-card-wrapper">
+                    <div class="cassette-body">
+                        <div class="tape-wheels">
+                            <span class="wheel" id="wheel-left"></span>
+                            <span class="wheel" id="wheel-right"></span>
+                        </div>
+                        <div class="track-details">
+                            <h4 class="track-name" id="track-title">LOADING AUDIO...</h4>
+                            <p class="track-artist" id="track-artist">PLEASE WAIT</p>
+                        </div>
+                        <!-- Ecualizador Cilíndrico Fino -->
+                        <div class="player-visualizer" id="visualizer">
+                            <span class="eq-bar"></span>
+                            <span class="eq-bar"></span>
+                            <span class="eq-bar"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="cassette-controls">
+                        <button id="play-pause-btn" class="ctrl-btn" aria-label="Play/Pause">
+                            <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg id="pause-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="volume-slider-group">
+                            <button id="volume-mute-btn" class="vol-mute-btn" aria-label="Mute">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vol-svg">
+                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                                </svg>
+                            </button>
+                            <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" class="vol-slider">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Barra de Carga de Hilo de 1px -->
+                <div class="hilo-progress-container">
+                    <div class="hilo-progress-meta">
+                        <span id="log-text" class="phase-detail-text">Connecting...</span>
+                        <span id="progress-val-text" class="percentage-detail-text">0%</span>
+                    </div>
+                    <div class="hilo-progress-track">
+                        <div class="hilo-progress-bar" id="progress-bar"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Tip de Teclado del Pie -->
+            <div class="footer-metadata-row">
+                <p id="music-tip-text" class="music-tip-text">PRESS SPACE TO PAUSE MUSIC</p>
+                <p class="branding-credits">ZYRA STORE EDITION • ALL RIGHTS RESERVED</p>
+            </div>
+            
+        </footer>
+
+    </main>
+
+    <!-- Elemento Audio Oculto -->
+    <audio id="bg-audio" loop preload="auto"></audio>
+
+    <!-- Scripts Modulares en Orden Riguroso -->
+    <script src="js/config.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/loading.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/news.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
